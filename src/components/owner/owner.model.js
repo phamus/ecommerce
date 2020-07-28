@@ -9,4 +9,4 @@ const ownerSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Category", ownerSchema);
+module.exports = mongoose.model("Owner", ownerSchema);

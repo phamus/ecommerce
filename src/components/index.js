@@ -1,5 +1,6 @@
 const productRoutes = require("./product/product.routes");
 const categoryRoutes = require("./category/category.routes");
+const ownerRoutes = require("./owner/owner.routes");
 
 module.exports = {
   product: {
@@ -7,5 +8,8 @@ module.exports = {
   },
   category: {
     routes: categoryRoutes,
+  },
+  owner: {
+    routes: ownerRoutes,
   },
 };

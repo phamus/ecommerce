@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const product = require("./components").product;
 const category = require("./components").category;
+const owner = require("./components").owner;
 require("./db");
 
 const app = express();
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/product", product.routes);
 app.use("/api/category", category.routes);
-
+app.use("/api/owner", owner.routes);
 app.listen(5000, (err) => {
   if (err) {
     console.log("err", err);
