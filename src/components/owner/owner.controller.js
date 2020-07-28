@@ -19,3 +19,16 @@ exports.createOwner = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+// get owners
+exports.getOwners = async (req, res) => {
+  try {
+    const owners = await Owner.find();
+    res.json({
+      success: true,
+      owners,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
