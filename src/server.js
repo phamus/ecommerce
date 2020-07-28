@@ -1,23 +1,23 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const product = require("./components").product;
+require("./db");
 
 const app = express();
 
 // Middleware
 
 app.use(morgan("dev"));
-app.unsubscribe(bodyParser.json());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.json("Hello Amazone clone");
-});
+app.use("/api/product", product.routes);
 
 app.listen(5000, (err) => {
   if (err) {
     console.log("err", err);
   } else {
-    console.log("Connected");
+    console.log("Connected at port 5000");
   }
 });
