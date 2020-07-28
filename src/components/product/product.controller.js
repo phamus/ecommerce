@@ -45,3 +45,47 @@ exports.getProduct = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+exports.updateProduct = async (req, res) => {
+  try {
+    const product = await Product.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          title: req.body.title,
+          price: req.body.price,
+          category: req.body.category,
+          phone: req.file.location,
+          description: req.body.description,
+          owner: req.body.ownerId,
+        },
+      },
+      { upsert: true }
+    );
+
+    res.json({
+      success: true,
+      updateProduct: product,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const productDelete = await Product.findOneAndDelete({
+      _id: req.params.id,
+    });
+    if (productDelete) {
+      res.json({
+        success: true,
+        message: "Successful",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

@@ -13,4 +13,7 @@ router.get("/", prodCntrl.getAllProducts);
 //get single product
 router.get("/:id", prodCntrl.getProduct);
 
+router.put("/:id", prodCntrl.updateProduct);
+router.delete("/:id", prodCntrl.deleteProduct);
+
 module.exports = router;
