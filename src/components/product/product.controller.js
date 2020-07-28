@@ -13,7 +13,7 @@ exports.createProduct = async (req, res) => {
     await product.save();
 
     res.json({
-      status: true,
+      success: true,
       message: "successfully saved",
     });
   } catch (error) {
