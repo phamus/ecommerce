@@ -5,12 +5,14 @@ const product = require("./components").product;
 const category = require("./components").category;
 const owner = require("./components").owner;
 require("./db");
+const cors = require("cors");
 
 const app = express();
 
 // Middleware
 
 app.use(morgan("dev"));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

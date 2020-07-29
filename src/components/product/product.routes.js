@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/product", upload.single("photo"), prodCntrl.createProduct);
 
 //get all products
-router.get("/", prodCntrl.getAllProducts);
+router.get("/products", prodCntrl.getAllProducts);
 
 //get single product
 router.get("/:id", prodCntrl.getProduct);

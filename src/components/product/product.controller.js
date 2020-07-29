@@ -3,12 +3,22 @@ exports.createProduct = async (req, res) => {
   try {
     // console.log(req.body);
     const photo = req.file.location;
-    const { title, description, stockQuantity } = req.body;
+    const {
+      title,
+      description,
+      stockQuantity,
+      ownerId,
+      price,
+      categoryId,
+    } = req.body;
     const product = new Product({
       title,
       description,
       photo,
       stockQuantity,
+      ownerId,
+      categoryId,
+      price,
     });
     await product.save();
 
